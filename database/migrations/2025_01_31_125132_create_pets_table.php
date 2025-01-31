@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('stage');
             $table->string('characteristics');
 
-            $table->foreignUuid('owner_id');
+            $table->foreignUuid('owner_id')->constrained('owners')->onDelete('cascade');
             $table->timestamps();
         });
     }
