@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('species');
             $table->string('breed');
-            $table->char('sex');
-            $table->string('stage');
-            $table->string('characteristics')->nullable();
+            $table->enum('sex', ['Male', 'Female']);
+            $table->enum('stage', ['Baby', 'Puppy', 'Adult']);
+            $table->text('characteristics')->nullable();
 
             $table->foreignUuid('owner_id')->constrained('owners')->onDelete('cascade');
             $table->timestamps();
