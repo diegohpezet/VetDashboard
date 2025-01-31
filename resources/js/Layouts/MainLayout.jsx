@@ -41,7 +41,7 @@ export default function MainLayout({ children }) {
               <NavLink href={route('owners.index')}>Owners</NavLink>
             </li>
             <li>
-              <NavLink href={route('profile.edit')}>Pets</NavLink>
+              <NavLink href={route('pets.index')}>Pets</NavLink>
             </li>
             <li>
               <NavLink href={route('profile.edit')}>Appointments</NavLink>
