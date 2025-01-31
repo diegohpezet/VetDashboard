@@ -12,4 +12,9 @@ class Owner extends Model
     use HasUuids, HasFactory;
 
     protected $fillable = ['name', 'address', 'email', 'phone_number'];
+
+    public function pets()
+    {
+        return $this->hasMany(Pet::class);
+    }
 }

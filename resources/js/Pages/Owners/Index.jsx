@@ -1,8 +1,8 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, Link } from "@inertiajs/react";
-import SearchBar from "./Components/SearchBar";
-import Pagination from "./Components/Pagination";
+import SearchBar from "@/Components/SearchBar";
+import Pagination from "@/Components/Pagination";
 import OwnersTable from "./Components/OwnersTable";
 
 export default function OwnersIndex({ owners, search }) {
@@ -12,7 +12,7 @@ export default function OwnersIndex({ owners, search }) {
 
       <SectionCard>
         <div className="md:flex justify-between">
-          <SearchBar initialSearch={search} />
+          <SearchBar initialSearch={search} resource='owners' />
           
           <Link href={route('owners.create')} className="btn btn-primary mb-3 font-bold text-lg">+ New owner</Link>
         </div>
