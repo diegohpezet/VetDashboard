@@ -20,4 +20,9 @@ class Pet extends Model
         'characteristics',
         'owner_id'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class);
+    }
 }
