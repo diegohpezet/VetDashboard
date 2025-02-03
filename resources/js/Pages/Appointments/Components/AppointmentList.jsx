@@ -1,4 +1,3 @@
-import SectionCard from "@/Components/SectionCard";
 import AppointmentListItem from "./AppointmentListItem";
 
 export default function AppointmentList({ appointments }) {

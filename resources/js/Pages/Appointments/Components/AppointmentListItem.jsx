@@ -1,7 +1,9 @@
 import dayjs from "dayjs";
-import { Link } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 export default function AppointmentListItem({ appointment }) {
+  const { delete: destroy } = useForm();
+
   const setBadgeColor = (status) => {
     if (status === "Scheduled") {
       return "bg-yellow-600";
@@ -17,7 +19,10 @@ export default function AppointmentListItem({ appointment }) {
   };
 
   const deleteAppointment = (e, appointmentId) => {
-    console.log(appointmentId);
+    e.preventDefault();
+    if (confirm('Are you sure you want to delete this appointment?')) {
+      destroy(route('appointments.destroy', appointmentId));
+    }
   };
 
   return (
