@@ -54,8 +54,6 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
       <SectionCard>
         <h1 className="text-2xl font-bold">Edit Appointment</h1>
 
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Owner (To filter pets from) */}
           <label className="form-control">
