@@ -23,7 +23,7 @@ class StoreAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'pet_id' => 'required|integer|exists:pets,id',
+            'pet_id' => 'required|string|exists:pets,id',
             'date' => 'required|date|after_or_equal:now',
             'reason' => 'nullable|string|max:255',
             'status' => 'required|in:Scheduled,Completed,Cancelled'

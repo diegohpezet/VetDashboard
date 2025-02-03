@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Http\Requests\UpdateAppointmentRequest;
 use App\Models\Appointment;
+use App\Models\Owner;
 use App\Models\Pet;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class AppointmentController extends Controller
@@ -13,11 +15,17 @@ class AppointmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $appointments = Appointment::all()
+        $search = $request->input('search');
+
+        $appointments = Appointment::with('pet.owner')
+            ->whereHas('pet', function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
             ->orderBy('date', 'desc')
-            ->paginate(10);
+            ->paginate(10)
+            ->appends(['search' => $search]);
 
         return Inertia::render('Appointments/Index', [
             'appointments' => $appointments
@@ -30,6 +38,7 @@ class AppointmentController extends Controller
     public function create()
     {
         return Inertia::render('Appointments/Create', [
+            'owners' => Owner::all(),
             'pets' => Pet::all()
         ]);
     }
@@ -61,6 +70,8 @@ class AppointmentController extends Controller
     {
         return Inertia::render('Appointments/Edit', [
             'appointment' => $appointment,
+            'owners' => Owner::all(),
+            'pets' => Pet::all()
         ]);
     }
 
