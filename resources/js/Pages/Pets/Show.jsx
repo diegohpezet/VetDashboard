@@ -1,5 +1,6 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
+import PetAppointmentList from "./Components/PetAppointmentList";
 import { Head, Link } from "@inertiajs/react";
 
 export default function PetsShow({ pet }) {
@@ -16,6 +17,10 @@ export default function PetsShow({ pet }) {
         <p>Owner: <Link href={route('owners.show', pet.owner.id)} className="text-primary">{pet.owner.name}</Link></p>
 
         <p className="text-gray-600">{pet.characteristics}</p>
+      </SectionCard>
+
+      <SectionCard>
+        <PetAppointmentList appointments={pet.appointments} />
       </SectionCard>
     </MainLayout>
   )
