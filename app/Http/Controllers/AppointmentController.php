@@ -59,7 +59,7 @@ class AppointmentController extends Controller
     public function show(Appointment $appointment)
     {
         return Inertia::render('Appointments/Show', [
-            'appointment' => $appointment,
+            'appointment' => $appointment->load(['pet.owner']),
         ]);
     }
 

@@ -39,6 +39,7 @@ export default function AppointmentListItem({ appointment }) {
           <i className="ri-more-2-fill"></i>
         </div>
         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+          <li><Link href={route('appointments.show', appointment.id)}>View</Link></li>
           <li><Link href={route('pets.show', appointment.pet.id)}>Pet info</Link></li>
           <li><Link href={route('owners.show', appointment.pet.owner.id)}>Contact owner</Link></li>
           <li><Link href={route('appointments.edit', appointment.id)}>Edit</Link></li>
