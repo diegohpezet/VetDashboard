@@ -44,7 +44,7 @@ export default function MainLayout({ children }) {
               <NavLink href={route('pets.index')}>Pets</NavLink>
             </li>
             <li>
-              <NavLink href={route('profile.edit')}>Appointments</NavLink>
+              <NavLink href={route('appointments.index')}>Appointments</NavLink>
             </li>
 
             {/* Empujar estos elementos hacia abajo */}
