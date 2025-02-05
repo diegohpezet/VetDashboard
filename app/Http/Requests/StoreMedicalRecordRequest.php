@@ -24,9 +24,15 @@ class StoreMedicalRecordRequest extends FormRequest
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             'date' => 'required|date|before_or_equal:now',
             'diagnosis' => 'required|string|max:255',
             'treatment' => 'required|string|max:255',
+=======
+            'date' => 'required|date|after_or_equal:now',
+            'diagnosis' => 'nullable|string|max:255',
+            'treatment' => 'nullable|string|max:255',
+>>>>>>> ea141a087f18d2bf394396e77c67de22c7c9ca7f
 =======
             'date' => 'required|date|after_or_equal:now',
             'diagnosis' => 'nullable|string|max:255',
