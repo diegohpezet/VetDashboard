@@ -33,6 +33,6 @@ class Pet extends Model
 
     public function medicalRecords()
     {
-        return $this->hasMany(MedicalRecord::class);
+        return $this->hasMany(MedicalRecord::class)->orderBy('date', 'desc');
     }
 }
