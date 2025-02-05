@@ -6,7 +6,7 @@ export default function PetMedicalRecord({ medical_record }) {
   const deleteMedicalRecord = (e, medical_recordId) => {
     e.preventDefault();
     if (confirm('Are you sure you want to delete this medical record?')) {
-      destroy(route('medical-records.destroy', medical_recordId));
+      destroy(route('pets.medical-records.destroy', [medical_record.pet_id, medical_recordId]));
     }
   }
   
@@ -19,7 +19,7 @@ export default function PetMedicalRecord({ medical_record }) {
             <i className="ri-more-2-fill"></i>
           </div>
           <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            <li><Link href={route('medical-records.edit', medical_record.id)}>Edit</Link></li>
+            <li><Link href={route('pets.medical-records.edit', [medical_record.pet_id, medical_record.id])}>Edit</Link></li>
             <form onSubmit={(e) => deleteMedicalRecord(e, medical_record.id)}>
               <li><button type="submit" className="w-full">Delete</button></li>
             </form>
