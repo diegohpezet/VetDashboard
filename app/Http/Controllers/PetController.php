@@ -56,7 +56,11 @@ class PetController extends Controller
     public function show(Pet $pet)
     {
         return Inertia::render('Pets/Show', [
-            'pet' => $pet->load(['owner', 'appointments'])
+            'pet' => $pet->load([
+                'owner', 
+                'appointments', 
+                'medicalRecords'
+            ])
         ]);
     }
 

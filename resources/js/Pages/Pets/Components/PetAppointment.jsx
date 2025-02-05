@@ -20,7 +20,7 @@ export default function PetAppointment({ appointment }) {
       </article>
       <div>
         <Link href={route('appointments.show', appointment.id)} className="btn btn-ghost m-1">
-        <i class="ri-information-line"></i>
+        <i className="ri-information-line"></i>
         </Link>
       </div>
     </div>
