@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('owners', OwnerController::class);
     Route::resource('pets', PetController::class);
     Route::resource('appointments', AppointmentController::class);
+    Route::resource('pets.medical-records', MedicalRecordController::class);
 });
 
 require __DIR__.'/auth.php';
