@@ -2,6 +2,7 @@ import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import PetAppointmentList from "./Components/PetAppointmentList";
 import { Head, Link } from "@inertiajs/react";
+import PetMedicalRecordList from "./Components/PetMedicalRecordList";
 
 export default function PetsShow({ pet }) {
   return (
@@ -19,9 +20,18 @@ export default function PetsShow({ pet }) {
         <p className="text-gray-600">{pet.characteristics}</p>
       </SectionCard>
 
-      <SectionCard>
-        <PetAppointmentList appointments={pet.appointments} />
-      </SectionCard>
+      <div className="xl:mx-auto xl:flex items-stretch justify-center min-h-[400px] gap-4">
+        <div className="flex-1">
+          <SectionCard>
+            <PetAppointmentList appointments={pet.appointments} />
+          </SectionCard>
+        </div>
+        <div className="flex-1">
+          <SectionCard>
+            <PetMedicalRecordList pet={pet} />
+          </SectionCard>
+        </div>
+      </div>
     </MainLayout>
-  )
+  );
 }
