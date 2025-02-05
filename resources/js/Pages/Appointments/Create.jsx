@@ -113,6 +113,7 @@ export default function AppointmentCreate({ pets, owners }) {
               onChange={handleTimeChange}
               required
             >
+              <option value="">Select a time</option>
               {allowedTimes.map((time) => (
                 <option key={time} value={time}>
                   {time}
