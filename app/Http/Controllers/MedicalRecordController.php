@@ -45,23 +45,22 @@ class MedicalRecordController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pet $pet, MedicalRecord $medical_record)
+    public function edit(MedicalRecord $medical_record)
     {
         return Inertia::render('MedicalRecords/Edit', [
-            'pet' => $pet,
-            'medicalRecord' => $medical_record,
+            'medicalRecord' => $medical_record->load('pet'),
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMedicalRecordRequest $request, Pet $pet, MedicalRecord $medical_record)
+    public function update(UpdateMedicalRecordRequest $request, MedicalRecord $medical_record)
     {
         $data = $request->all();
         $medical_record->update($data);
 
-        return redirect()->route('pets.show', $pet)->with('success', 'Medical record updated successfully');
+        return redirect()->route('pets.show', $medical_record->pet)->with('success', 'Medical record updated successfully');
     }
 
     /**
