@@ -66,7 +66,7 @@ class MedicalRecordController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pet $pet, MedicalRecord $medicalRecord)
+    public function destroy(MedicalRecord $medicalRecord)
     {
         $medicalRecord->delete();
 

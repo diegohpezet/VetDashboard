@@ -6,7 +6,7 @@ export default function PetMedicalRecord({ medical_record }) {
   const deleteMedicalRecord = (e, medical_recordId) => {
     e.preventDefault();
     if (confirm('Are you sure you want to delete this medical record?')) {
-      destroy(route('pets.medical-records.destroy', [medical_record.pet_id, medical_recordId]));
+      destroy(route('medical-records.destroy', medical_recordId));
     }
   }
   
