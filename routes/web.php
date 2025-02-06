@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('owners', OwnerController::class);
     Route::resource('pets', PetController::class);
     Route::resource('appointments', AppointmentController::class);
-    Route::resource('pets.medical-records', MedicalRecordController::class);
+    Route::resource('pets.medical-records', MedicalRecordController::class)->shallow();
 });
 
 require __DIR__.'/auth.php';

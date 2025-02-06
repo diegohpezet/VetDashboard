@@ -2,7 +2,7 @@ import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, useForm } from "@inertiajs/react";
 
-export default function MedicalRecordCreate({ pet, medicalRecord }) {
+export default function MedicalRecordCreate({ medicalRecord }) {
   const { data, setData, put, errors } = useForm({
     diagnosis: medicalRecord.diagnosis,
     treatment: medicalRecord.treatment,
@@ -11,7 +11,7 @@ export default function MedicalRecordCreate({ pet, medicalRecord }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    put(route('pets.medical-records.update', [pet.id, medicalRecord.id]));
+    put(route('medical-records.update', medicalRecord.id));
   };
 
   return (
@@ -19,7 +19,7 @@ export default function MedicalRecordCreate({ pet, medicalRecord }) {
       <Head title="Edit medical record" />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">Edit medical record for {pet.name}</h1>
+        <h1 className="text-2xl font-bold">Edit medical record for {medicalRecord.pet.name}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Diagnosis */}
