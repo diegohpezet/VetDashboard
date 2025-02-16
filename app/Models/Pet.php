@@ -35,4 +35,9 @@ class Pet extends Model
     {
         return $this->hasMany(MedicalRecord::class)->orderBy('date', 'desc');
     }
+
+    public function vaccinations()
+    {
+        return $this->hasMany(Vaccination::class);
+    }
 }
