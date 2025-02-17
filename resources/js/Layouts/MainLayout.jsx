@@ -15,9 +15,7 @@ export default function MainLayout({ children }) {
               <i className="ri-menu-2-line"></i>
             </label>
             <div className="flex-1">
-              <div className="form-control">
-                <input type="text" placeholder="Search..." className="input input-bordered w-24 md:w-auto" />
-              </div>
+              <h1 className="text-2xl font-bold hidden md:block">Hello {user.name}!</h1>
             </div>
             <div className="flex-none px-2">
               <i className="ri-phone-fill"></i>+54 11 2345-6789
