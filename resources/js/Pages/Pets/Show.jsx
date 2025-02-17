@@ -21,7 +21,7 @@ export default function PetsShow({ pet }) {
         <p className="text-gray-600">{pet.characteristics}</p>
       </SectionCard>
 
-      <div className="xl:mx-auto xl:flex items-stretch justify-center min-h-[400px] gap-4">
+      <div className="xl:mx-auto xl:flex min-h-[400px] max-w-7xl">
         <div className="flex-1">
           {/* Appointments */}
           <SectionCard>
@@ -33,7 +33,7 @@ export default function PetsShow({ pet }) {
           <SectionCard>
             <h2 className="text-xl font-bold mb-3">Medical Records</h2>
             <div className="flex justify-between">
-              <Link href={route('pets.medical-records.create', pet.id)} className="btn btn-primary mb-3">+ New record</Link>
+              <Link href={route('pets.medical-records.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ New record</Link>
               {pet.medical_records.length > 3 && <Link href={route('pets.medical-records.index', pet.id)} className="btn btn-primary mb-3">View all</Link>}
             </div>
 
@@ -43,6 +43,43 @@ export default function PetsShow({ pet }) {
               ))
             ) : (
               <p>No medical records found</p>
+            )}
+          </SectionCard>
+        </div>
+      </div>
+
+      {/* Vaccinations */}
+      <div className="flex">
+        <div className="flex-1">
+          <SectionCard>
+            <h2 className="text-xl font-bold mb-3">Vaccinations</h2>
+            {pet.vaccinations.length > 0 ? (
+              <div>
+                <div className="flex gap-2">
+                  <Link href={route('pets.vaccinations.index', pet.id)} className="btn btn-primary dark:text-white mb-3">View all</Link>
+                  <Link href={route('pets.vaccinations.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ New vaccination</Link>
+                </div>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Date</th>
+                      <th>Next Dose</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pet.vaccinations.slice(0, 6).map((vaccination) => (
+                      <tr key={vaccination.id} className="hover">
+                        <td>{vaccination.name}</td>
+                        <td>{vaccination.date}</td>
+                        <td>{vaccination.next_dose || '-'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p>No vaccinations found</p>
             )}
           </SectionCard>
         </div>
