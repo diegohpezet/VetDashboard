@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use App\Models\MedicalRecord;
-use App\Models\Pet;
-use App\Models\Owner;
-use App\Models\Vaccination;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
