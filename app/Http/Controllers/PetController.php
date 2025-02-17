@@ -59,7 +59,8 @@ class PetController extends Controller
             'pet' => $pet->load([
                 'owner', 
                 'appointments', 
-                'medicalRecords'
+                'medicalRecords',
+                'vaccinations'
             ])
         ]);
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VaccinationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('pets', PetController::class);
     Route::resource('appointments', AppointmentController::class);
     Route::resource('pets.medical-records', MedicalRecordController::class)->shallow();
+    Route::resource('pets.vaccinations', VaccinationController::class)->shallow();
 });
 
 require __DIR__.'/auth.php';
