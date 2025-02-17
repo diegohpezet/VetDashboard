@@ -1,10 +1,12 @@
 import AppointmentListItem from "./AppointmentListItem";
 
 export default function AppointmentList({ appointments }) {
+  const appointmentsArray = appointments.data || appointments;
+  
   return (
     <div>
-      {appointments.data.length > 0 ? (
-        appointments.data.map((appointment) => (
+      {appointmentsArray.length > 0 ? (
+        appointmentsArray.map((appointment) => (
           <AppointmentListItem key={appointment.id} appointment={appointment} />
         ))
       ) : (
