@@ -14,7 +14,8 @@ class DashboardController extends Controller
 {
   public function index()
   {
-    $todayAppointments = Appointment::whereDate('date', now()->format('Y-m-d'))->get();
+    $todayAppointments = Appointment::with('pet.owner')
+      ->whereDate('date', now()->format('Y-m-d'))->get();
 
     return Inertia::render('Dashboard', [
       'appointments' => $todayAppointments,
