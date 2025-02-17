@@ -3,6 +3,7 @@ import MainLayout from "@/Layouts/MainLayout";
 import PetAppointmentList from "./Components/PetAppointmentList";
 import { Head, Link } from "@inertiajs/react";
 import PetMedicalRecord from "../MedicalRecords/Components/PetMedicalRecord";
+import VaccinationsTable from "../Vaccinations/Components/VaccinationsTable";
 
 export default function PetsShow({ pet }) {
   return (
@@ -55,28 +56,11 @@ export default function PetsShow({ pet }) {
             <h2 className="text-xl font-bold mb-3">Vaccinations</h2>
             {pet.vaccinations.length > 0 ? (
               <div>
-                <div className="flex gap-2">
-                  <Link href={route('pets.vaccinations.index', pet.id)} className="btn btn-primary dark:text-white mb-3">View all</Link>
-                  <Link href={route('pets.vaccinations.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ New vaccination</Link>
+                <div className="flex gap-2 mb-3">
+                <Link href={route('pets.vaccinations.index', pet.id)} className="btn btn-primary dark:text-white mb-3">View all</Link>
+                <Link href={route('pets.vaccinations.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ New vaccination</Link>
                 </div>
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Date</th>
-                      <th>Next Dose</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {pet.vaccinations.slice(0, 6).map((vaccination) => (
-                      <tr key={vaccination.id} className="hover">
-                        <td>{vaccination.name}</td>
-                        <td>{vaccination.date}</td>
-                        <td>{vaccination.next_dose || '-'}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <VaccinationsTable vaccinations={pet.vaccinations.slice(0, 6)} />
               </div>
             ) : (
               <p>No vaccinations found</p>

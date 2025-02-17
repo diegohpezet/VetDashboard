@@ -1,6 +1,7 @@
 import { Link, useForm } from "@inertiajs/react";
 
 export default function VaccinationsTable({ vaccinations }) {
+  const vaccinationsArray = vaccinations.data || vaccinations;
   const { delete: destroy } = useForm();
 
   const deleteVaccination = (e, vaccinationId) => {
@@ -22,13 +23,13 @@ export default function VaccinationsTable({ vaccinations }) {
           </tr>
         </thead>
         <tbody>
-          {vaccinations.data.map((vaccination) => (
+          {vaccinationsArray.map((vaccination) => (
             <tr key={vaccination.id} className="hover">
               <td>{vaccination.name}</td>
               <td>{vaccination.date}</td>
               <td>{vaccination.next_dose || '-'}</td>
               <td className="flex gap-2">
-                <Link href={route('vaccinations.edit', vaccination.id)} className="btn btn-primary">Edit</Link>
+                <Link href={route('vaccinations.edit', vaccination.id)} className="btn btn-primary dark:text-white">Edit</Link>
                 <form onSubmit={(e) => deleteVaccination(e, vaccination.id)}>
                   <button type="submit" className="btn">Delete</button>
                 </form>
