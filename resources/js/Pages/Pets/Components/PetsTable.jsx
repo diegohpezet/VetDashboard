@@ -1,6 +1,8 @@
 import { Link, useForm } from "@inertiajs/react";
 
-export default function PetsTable({ pets }) {
+export default function PetsTable({ pets, showOwner = true }) {
+  const petsArray = pets.data || pets;
+
   const { delete: destroy } = useForm();
 
   const deletePet = (e, petId) => {
@@ -19,13 +21,13 @@ export default function PetsTable({ pets }) {
           <th>Breed</th>
           <th>Sex</th>
           <th>Stage</th>
-          <th>Owner</th>
+          {showOwner && <th>Owner</th>}
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {pets.data.length > 0 ? (
-          pets.data.map((pet) => (
+        {petsArray.length > 0 ? (
+          petsArray.map((pet) => (
             <tr className="hover" key={pet.id}>
               <td className="text-primary">
                 <Link href={route("pets.show", pet.id)}>{pet.name}</Link>
@@ -36,9 +38,9 @@ export default function PetsTable({ pets }) {
                 {pet.sex === 'Male' ? <i className="ri-men-line text-blue-400"></i> : <i className="ri-women-line text-pink-400"></i>}
               </td>
               <td>{pet.stage}</td>
-              <td className="text-primary">
+              {showOwner && <td className="text-primary">
                 <Link href={route('owners.show', pet.owner.id)}>{pet.owner.name}</Link>
-              </td>
+              </td>}
               <td>
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} role="button" className="btn btn-ghost m-1">

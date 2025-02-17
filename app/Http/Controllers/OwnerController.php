@@ -52,7 +52,7 @@ class OwnerController extends Controller
     public function show(Owner $owner)
     {
         return Inertia::render('Owners/Show', [
-            'owner' => $owner
+            'owner' => $owner->load('pets'),
         ]);
     }
 
