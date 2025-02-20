@@ -6,6 +6,7 @@ use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VaccinationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('services', ServiceController::class)->except('show');
     Route::resource('owners', OwnerController::class);
     Route::resource('pets', PetController::class);
     Route::resource('appointments', AppointmentController::class);
