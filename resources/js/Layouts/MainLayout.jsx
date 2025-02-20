@@ -33,7 +33,7 @@ export default function MainLayout({ children }) {
               <NavLink href={route('dashboard')}>Dashboard</NavLink>
             </li>
             <li>
-              <NavLink href={route('profile.edit')}>Services and prices</NavLink>
+              <NavLink href={route('services.index')}>Services and prices</NavLink>
             </li>
             <li>
               <NavLink href={route('owners.index')}>Owners</NavLink>
