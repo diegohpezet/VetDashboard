@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        $this->call(ServiceSeeder::class);
         $this->call(OwnerSeeder::class);
         $this->call(PetSeeder::class);
         $this->call(AppointmentSeeder::class);
