@@ -44,7 +44,7 @@ export default function PetsShow({ pet }) {
                 <PetMedicalRecord key={medical_record.id} medical_record={medical_record} />
               ))
             ) : (
-              <p>No medical records found</p>
+              <p>{t('common.empty')}</p>
             )}
           </SectionCard>
         </div>
