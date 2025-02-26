@@ -1,4 +1,5 @@
 import PetAppointment from "./PetAppointment";
+import { t } from "i18next"
 
 export default function PetAppointmentList({ appointments }) {
   return (
@@ -9,7 +10,7 @@ export default function PetAppointmentList({ appointments }) {
           <PetAppointment key={appointment.id} appointment={appointment} />
         ))
       ) : (
-        <p>No appointments found</p>
+        <p>{t('common.empty')}</p>
       )}
     </div>
   );
