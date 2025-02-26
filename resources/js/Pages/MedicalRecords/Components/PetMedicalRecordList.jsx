@@ -1,4 +1,5 @@
 import PetMedicalRecord from "./PetMedicalRecord";
+import { t } from "i18next";
 
 export default function PetMedicalRecordList({ pet }) {
   const { medical_records } = pet;
@@ -10,7 +11,7 @@ export default function PetMedicalRecordList({ pet }) {
           <PetMedicalRecord key={medical_record.id} medical_record={medical_record} />
         ))
       ) : (
-        <p>No medical records found</p>
+        <p>{t('common.empty')}</p>
       )}
     </div>
   );
