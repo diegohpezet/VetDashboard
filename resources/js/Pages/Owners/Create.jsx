@@ -1,6 +1,7 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function OwnersCreate() {
   const { data, setData, post, errors } = useForm({
@@ -20,12 +21,12 @@ export default function OwnersCreate() {
       <Head title="New Owner" />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">New Owner</h1>
+        <h1 className="text-2xl font-bold">{t('owners.create')}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">{t('owners.fields.name')}</span>
             </div>
             <input
               type="text"
@@ -39,11 +40,11 @@ export default function OwnersCreate() {
 
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">{t('owners.fields.email')}</span>
             </div>
             <input
               type="email"
-              placeholder="johndoe@example.com"
+              placeholder={t('owners.fields.email.placeholder')}
               className="input input-bordered w-full"
               value={data.email}
               onChange={(e) => setData("email", e.target.value)}
@@ -53,11 +54,11 @@ export default function OwnersCreate() {
 
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Address</span>
+              <span className="label-text">{t('owners.fields.address')}</span>
             </div>
             <input
               type="text"
-              placeholder="Random st. 1234"
+              placeholder={t('owners.fields.address.placeholder')}
               className="input input-bordered w-full"
               value={data.address}
               onChange={(e) => setData("address", e.target.value)}
@@ -67,11 +68,11 @@ export default function OwnersCreate() {
 
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Phone</span>
+              <span className="label-text">{t('owners.fields.phone_number')}</span>
             </div>
             <input
               type="text"
-              placeholder="+54 011 1234 5678"
+              placeholder={t('owners.fields.phone_number.placeholder')}
               className="input input-bordered w-full"
               value={data.phone_number}
               onChange={(e) => setData("phone_number", e.target.value)}
@@ -81,9 +82,9 @@ export default function OwnersCreate() {
 
           <div className="flex items-center justify-end gap-2">
             <a href={route('owners.index')} className="btn btn-ghost text-blue-500">
-              Cancel
+              {t('common.actions.cancel')}
             </a>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">{t('common.actions.save')}</button>
           </div>
         </form>
       </SectionCard>

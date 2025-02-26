@@ -1,6 +1,7 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
+import { t } from "i18next";
 import PetsTable from "../Pets/Components/PetsTable";
 
 export default function OwnersShow({ owner }) {
@@ -11,11 +12,11 @@ export default function OwnersShow({ owner }) {
       <SectionCard>
         <h1 className="text-2xl font-bold">{owner.name}</h1>
         <p>{owner.address}</p>
-        <p>Phone: {owner.phone_number}</p>
+        <p>{t('owners.fields.phone_number')}: {owner.phone_number}</p>
       </SectionCard>
 
       <SectionCard>
-        <h1 className="text-2xl font-bold mb-3">Pets</h1>
+        <h1 className="text-2xl font-bold mb-3">{t('pets')}</h1>
         <PetsTable pets={owner.pets} showOwner={false} />
       </SectionCard>
     </MainLayout>
