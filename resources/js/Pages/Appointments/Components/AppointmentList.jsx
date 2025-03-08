@@ -1,4 +1,5 @@
 import AppointmentListItem from "./AppointmentListItem";
+import { t } from "i18next";
 
 export default function AppointmentList({ appointments }) {
   const appointmentsArray = appointments.data || appointments;
@@ -10,7 +11,7 @@ export default function AppointmentList({ appointments }) {
           <AppointmentListItem key={appointment.id} appointment={appointment} />
         ))
       ) : (
-        <p>No appointments found</p>
+        <p>{t('common.empty')}</p>
       )}
     </div>
   );

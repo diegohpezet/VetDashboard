@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { Link, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function AppointmentListItem({ appointment }) {
   const { delete: destroy } = useForm();
@@ -15,12 +16,12 @@ export default function AppointmentListItem({ appointment }) {
   };
 
   const formatDate = (date) => {
-    return dayjs(date).format("DD/MM/YYYY [at] HH:mm");
+    return dayjs(date).format(`DD/MM/YYYY [${t('time.at')}] HH:mm`);
   };
 
   const deleteAppointment = (e, appointmentId) => {
     e.preventDefault();
-    if (confirm('Are you sure you want to delete this appointment?')) {
+    if (confirm(t('appointments.confirm_delete'))) {
       destroy(route('appointments.destroy', appointmentId));
     }
   };
@@ -31,7 +32,7 @@ export default function AppointmentListItem({ appointment }) {
         <h3 className="text-xl font-medium">{appointment.pet.name} <span className="text-gray-500">({appointment.pet.owner.name})</span></h3>
         <p className="text-gray-500">{appointment.reason}</p>
         <p>
-          <span>{formatDate(appointment.date)}</span> | <span className={' text-white px-2 rounded-full ' + setBadgeColor(appointment.status)}>{appointment.status}</span>
+          <span>{formatDate(appointment.date)}</span> | <span className={' text-white px-2 rounded-full ' + setBadgeColor(appointment.status)}>{t(`appointments.fields.status.options.${appointment.status.toLowerCase()}`)}</span>
         </p>
       </article>
       <div className="dropdown dropdown-end">
@@ -39,12 +40,10 @@ export default function AppointmentListItem({ appointment }) {
           <i className="ri-more-2-fill"></i>
         </div>
         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-          <li><Link href={route('appointments.show', appointment.id)}>View</Link></li>
-          <li><Link href={route('pets.show', appointment.pet.id)}>Pet info</Link></li>
-          <li><Link href={route('owners.show', appointment.pet.owner.id)}>Contact owner</Link></li>
-          <li><Link href={route('appointments.edit', appointment.id)}>Edit</Link></li>
+          <li><Link href={route('appointments.show', appointment.id)}>{t('common.actions.view')}</Link></li>
+          <li><Link href={route('appointments.edit', appointment.id)}>{t('appointments.edit')}</Link></li>
           <form onSubmit={(e) => deleteAppointment(e, appointment.id)}>
-            <li><button type="submit" className="w-full">Delete</button></li>
+            <li><button type="submit" className="w-full">{t('common.actions.delete')}</button></li>
           </form>
         </ul>
       </div>
