@@ -1,18 +1,20 @@
-import SectionCard from '@/Components/SectionCard';
 import MainLayout from '@/Layouts/MainLayout';
-import { Head } from '@inertiajs/react';
+import SectionCard from '@/Components/SectionCard';
 import AppointmentList from './Appointments/Components/AppointmentList';
+import { Head } from '@inertiajs/react';
+import { t } from 'i18next';
+
 
 export default function Dashboard({ appointments, stats }) {
     const appointmentStats = [
-        { label: "Finished Appt.", value: stats.appointments.completed, icon: "ri-calendar-check-line", color: "text-success" },
-        { label: "Upcoming Appt.", value: stats.appointments.scheduled, icon: "ri-calendar-event-line", color: "text-warning" },
-        { label: "Missed Appt.", value: stats.appointments.cancelled, icon: "ri-calendar-close-line", color: "text-error" },
+        { label: t('appointments.completed'), value: stats.appointments.completed, icon: "ri-calendar-check-line", color: "text-success" },
+        { label: t('appointments.scheduled'), value: stats.appointments.scheduled, icon: "ri-calendar-event-line", color: "text-warning" },
+        { label: t('appointments.cancelled'), value: stats.appointments.cancelled, icon: "ri-calendar-close-line", color: "text-error" },
     ];
 
     return (
         <MainLayout>
-            <Head title="Dashboard" />
+            <Head title={ t('dashboard') } />
 
             <div className="xl:mx-auto xl:flex max-w-7xl hidden">
                 {appointmentStats.map((stat, index) => (
@@ -27,7 +29,7 @@ export default function Dashboard({ appointments, stats }) {
             </div>
 
             <SectionCard>
-                <h1 className="text-2xl font-bold">Today's appointments</h1>
+                <h1 className="text-2xl font-bold">{t('appointments.today')}</h1>
 
                 <div className="mt-3">
                     <AppointmentList appointments={appointments} />
