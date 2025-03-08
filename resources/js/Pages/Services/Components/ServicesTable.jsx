@@ -1,4 +1,5 @@
 import { Link, useForm } from '@inertiajs/react'
+import { t } from 'i18next'
 
 export default function ServicesTable({ services }) {
   const { delete: destroy } = useForm();
@@ -10,12 +11,12 @@ export default function ServicesTable({ services }) {
     }
   }
 
-  return (
-    <table className="table w-full">
+  return (    
+    <table v-else className="table w-full">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th>{t('services.fields.name')}</th>
+          <th>{t('services.fields.price')}</th>
           <th></th>
         </tr>
       </thead>
@@ -30,9 +31,9 @@ export default function ServicesTable({ services }) {
                   <i className="ri-more-2-fill"></i>
                 </div>
                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <li><Link href={route('services.edit', service.id)}>Edit</Link></li>
+                  <li><Link href={route('services.edit', service.id)}>{t('common.actions.edit')}</Link></li>
                   <form onSubmit={(e) => deleteService(e, service.id)}>
-                    <li><button type="submit" className="w-full">Delete</button></li>
+                    <li><button type="submit" className="w-full">{t('common.actions.delete')}</button></li>
                   </form>
                 </ul>
               </div>

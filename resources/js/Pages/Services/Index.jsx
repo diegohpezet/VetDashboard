@@ -1,7 +1,8 @@
-import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head } from "@inertiajs/react";
+import SectionCard from "@/Components/SectionCard";
 import ServicesTable from "./Components/ServicesTable";
+import { Head } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function ServicesIndex({ services }) {
   return (
@@ -9,7 +10,7 @@ export default function ServicesIndex({ services }) {
       <Head title="Services" />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">Services and Prices</h1>
+        <h1 className="text-2xl font-bold">{t('services')}</h1>
 
         <div className="mt-3">
           <ServicesTable services={services} />
