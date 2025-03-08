@@ -54,17 +54,17 @@ export default function PetsShow({ pet }) {
       <div className="flex">
         <div className="flex-1">
           <SectionCard>
-            <h2 className="text-xl font-bold mb-3">Vaccinations</h2>
+            <h2 className="text-xl font-bold mb-3">{t('vaccinations')}</h2>
             {pet.vaccinations.length > 0 ? (
               <div>
                 <div className="flex gap-2 mb-3">
-                <Link href={route('pets.vaccinations.index', pet.id)} className="btn btn-primary dark:text-white mb-3">View all</Link>
-                <Link href={route('pets.vaccinations.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ New vaccination</Link>
+                <Link href={route('pets.vaccinations.index', pet.id)} className="btn btn-primary dark:text-white mb-3">{t('vaccinations.view_all')}</Link>
+                <Link href={route('pets.vaccinations.create', pet.id)} className="btn btn-primary dark:text-white mb-3">+ {t('vaccinations.create')}</Link>
                 </div>
                 <VaccinationsTable vaccinations={pet.vaccinations.slice(0, 6)} />
               </div>
             ) : (
-              <p>No vaccinations found</p>
+              <p>{t('common.empty')}</p>
             )}
           </SectionCard>
         </div>

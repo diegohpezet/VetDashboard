@@ -1,4 +1,5 @@
 import { Link, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function VaccinationsTable({ vaccinations }) {
   const vaccinationsArray = vaccinations.data || vaccinations;
@@ -16,9 +17,9 @@ export default function VaccinationsTable({ vaccinations }) {
       <table className="table w-full">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Next Dose</th>
+            <th>{t('vaccinations.fields.name')}</th>
+            <th>{t('vaccinations.fields.date')}</th>
+            <th>{t('vaccinations.fields.next_dose')}</th>
             <th></th>
           </tr>
         </thead>
@@ -29,9 +30,9 @@ export default function VaccinationsTable({ vaccinations }) {
               <td>{vaccination.date}</td>
               <td>{vaccination.next_dose || '-'}</td>
               <td className="flex gap-2">
-                <Link href={route('vaccinations.edit', vaccination.id)} className="btn btn-primary dark:text-white">Edit</Link>
+                <Link href={route('vaccinations.edit', vaccination.id)} className="btn btn-primary dark:text-white">{t('common.actions.edit')}</Link>
                 <form onSubmit={(e) => deleteVaccination(e, vaccination.id)}>
-                  <button type="submit" className="btn">Delete</button>
+                  <button type="submit" className="btn">{t('common.actions.delete')}</button>
                 </form>
               </td>
             </tr>
