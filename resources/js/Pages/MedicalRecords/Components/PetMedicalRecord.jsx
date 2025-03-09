@@ -1,11 +1,12 @@
 import { Link, useForm } from '@inertiajs/react';
+import { t } from 'i18next';
 
 export default function PetMedicalRecord({ medical_record }) {
   const { delete: destroy } = useForm();
 
   const deleteMedicalRecord = (e, medical_recordId) => {
     e.preventDefault();
-    if (confirm('Are you sure you want to delete this medical record?')) {
+    if (confirm(t('medical_records.confirm_delete'))) {
       destroy(route('medical-records.destroy', medical_recordId));
     }
   }
@@ -19,18 +20,18 @@ export default function PetMedicalRecord({ medical_record }) {
             <i className="ri-more-2-fill"></i>
           </div>
           <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            <li><Link href={route('medical-records.edit', medical_record.id)}>Edit</Link></li>
+            <li><Link href={route('medical-records.edit', medical_record.id)}>{t('common.actions.edit')}</Link></li>
             <form onSubmit={(e) => deleteMedicalRecord(e, medical_record.id)}>
-              <li><button type="submit" className="w-full">Delete</button></li>
+              <li><button type="submit" className="w-full">{t('common.actions.delete')}</button></li>
             </form>
           </ul>
         </div>
       </div>
       <p className="text-gray-700 dark:text-gray-400">
-        <span className="font-bold">Diagnosis:</span> {medical_record.diagnosis}
+        <span className="font-bold">{t('medical_records.fields.diagnosis')}:</span> {medical_record.diagnosis}
       </p>
       <p className="text-gray-700 dark:text-gray-400">
-        <span className="font-bold">Treatment:</span> {medical_record.treatment}
+        <span className="font-bold">{t('medical_records.fields.treatment')}:</span> {medical_record.treatment}
       </p>
     </div>
   );

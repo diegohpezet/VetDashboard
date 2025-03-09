@@ -1,6 +1,7 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head, useForm, usePage } from "@inertiajs/react";
+import { Head, Link, useForm, usePage } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function MedicalRecordCreate({ pet }) {
   const page = usePage();
@@ -20,16 +21,16 @@ export default function MedicalRecordCreate({ pet }) {
 
   return (
     <MainLayout>
-      <Head title="New medical record" />
+      <Head title={t('medical_records.create')} />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">New medical record for {pet.name}</h1>
+        <h1 className="text-2xl font-bold">{t('medical_records.create.for', { name: pet.name })}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Diagnosis */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Diagnosis</span>
+              <span className="label-text">{t('medical_records.fields.diagnosis')}</span>
             </div>
             <input
               type="text"
@@ -43,7 +44,7 @@ export default function MedicalRecordCreate({ pet }) {
           {/* Treatment */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Treatment</span>
+              <span className="label-text">{t('medical_records.fields.treatment')}</span>
             </div>
             <input
               type="text"
@@ -57,7 +58,7 @@ export default function MedicalRecordCreate({ pet }) {
           {/* Date */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Date</span>
+              <span className="label-text">{t('medical_records.fields.date')}</span>
             </div>
             <input
               type="date"
@@ -69,7 +70,8 @@ export default function MedicalRecordCreate({ pet }) {
           </label>
 
           <div className="flex justify-end">
-            <button type="submit" className="btn btn-primary">Save</button>
+            <Link href={route('pets.show', pet.id)} className="btn btn-ghost mr-2">{t('common.actions.cancel')}</Link>
+            <button type="submit" className="btn btn-primary">{t('common.actions.save')}</button>
           </div>
         </form>
       </SectionCard>

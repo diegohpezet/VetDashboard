@@ -1,6 +1,7 @@
 import MainLayout from '@/Layouts/MainLayout';
 import SectionCard from '@/Components/SectionCard';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
+import { t } from 'i18next';
 
 export default function ServiceCreate() {
   const { data, setData, post, errors } = useForm({
@@ -15,16 +16,16 @@ export default function ServiceCreate() {
 
   return (
     <MainLayout>
-      <Head title="New Service" />
+      <Head title={t('services.create')} />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">New Service</h1>
+        <h1 className="text-2xl font-bold">{t('services.create')}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">{t('services.fields.name')}</span>
             </div>
             <input
               type="text"
@@ -38,7 +39,7 @@ export default function ServiceCreate() {
           {/* Price */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Price</span>
+              <span className="label-text">{t('services.fields.price')}</span>
             </div>
             <input
               type="number"
@@ -52,9 +53,9 @@ export default function ServiceCreate() {
           
           <div className="flex items-center justify-end gap-2">
             <a href={route('owners.index')} className="btn btn-ghost text-blue-500">
-              Cancel
+              {t('common.actions.cancel')}
             </a>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">{t('common.actions.create')}</button>
           </div>
         </form>
       </SectionCard>

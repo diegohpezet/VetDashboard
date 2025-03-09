@@ -1,6 +1,7 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function MedicalRecordCreate({ medicalRecord }) {
   const { data, setData, put, errors } = useForm({
@@ -19,13 +20,13 @@ export default function MedicalRecordCreate({ medicalRecord }) {
       <Head title="Edit medical record" />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">Edit medical record for {medicalRecord.pet.name}</h1>
+        <h1 className="text-2xl font-bold">{t('medical_records.edit')}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Diagnosis */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Diagnosis</span>
+              <span className="label-text">{t('medical_records.fields.diagnosis')}</span>
             </div>
             <input
               type="text"
@@ -39,7 +40,7 @@ export default function MedicalRecordCreate({ medicalRecord }) {
           {/* Treatment */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Treatment</span>
+              <span className="label-text">{t('medical_records.fields.treatment')}</span>
             </div>
             <input
               type="text"
@@ -53,7 +54,7 @@ export default function MedicalRecordCreate({ medicalRecord }) {
           {/* Date */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Date</span>
+              <span className="label-text">{t}</span>
             </div>
             <input
               type="date"
@@ -65,7 +66,8 @@ export default function MedicalRecordCreate({ medicalRecord }) {
           </label>
 
           <div className="flex justify-end">
-            <button type="submit" className="btn btn-primary">Save</button>
+            <Link href={route('pets.show', medicalRecord.pet.id)} className="btn btn-ghost mr-2">{t('common.actions.cancel')}</Link>
+            <button type="submit" className="btn btn-primary">{t('common.actions.save')}</button>
           </div>
         </form>
       </SectionCard>

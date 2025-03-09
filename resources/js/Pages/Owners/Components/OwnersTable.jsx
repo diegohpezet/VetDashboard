@@ -1,11 +1,12 @@
 import { Link, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function OwnersTable({ owners }) {
   const { delete: destroy } = useForm();
 
   const deleteOwner = (e, ownerId) => {
     e.preventDefault();
-    if (confirm('Are you sure you want to delete this owner?')) {
+    if (confirm(t('owners.confirm_delete'))) {
       destroy(route('owners.destroy', ownerId));
     }
   }
@@ -14,10 +15,10 @@ export default function OwnersTable({ owners }) {
     <table className="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Phone Number</th>
+          <th>{t('owners.fields.name')}</th>
+          <th>{t('owners.fields.email')}</th>
+          <th>{t('owners.fields.address')}</th>
+          <th>{t('owners.fields.phone_number')}</th>
           <th></th>
         </tr>
       </thead>
@@ -37,9 +38,9 @@ export default function OwnersTable({ owners }) {
                     <i className="ri-more-2-fill"></i>
                   </div>
                   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    <li><Link href={route('owners.edit', owner.id)}>Edit</Link></li>
+                    <li><Link href={route('owners.edit', owner.id)}>{t('common.actions.edit')}</Link></li>
                     <form onSubmit={(e) => deleteOwner(e, owner.id)}>
-                      <li><button type="submit" className="w-full">Delete</button></li>
+                      <li><button type="submit" className="w-full">{t('common.actions.delete')}</button></li>
                     </form>
                   </ul>
                 </div>
@@ -48,7 +49,7 @@ export default function OwnersTable({ owners }) {
           ))
         ) : (
           <tr>
-            <td colSpan="5" className="text-center">No owners found.</td>
+            <td colSpan="5" className="text-center">{t('common.empty')}</td>
           </tr>
         )}
       </tbody>

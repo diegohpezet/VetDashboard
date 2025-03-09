@@ -1,6 +1,7 @@
 import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 export default function VaccinationEdit({ vaccination }) {
   const { data, setData, put, errors } = useForm({
@@ -16,16 +17,16 @@ export default function VaccinationEdit({ vaccination }) {
   
   return (
     <MainLayout>
-      <Head title="Edit vaccination" />
+      <Head title={t('vaccinations.edit')} />
 
       <SectionCard>
-        <h1 className="text-2xl font-bold">Edit vaccination</h1>
+        <h1 className="text-2xl font-bold">{t('vaccinations.edit')}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">{t('vaccinations.fields.name')}</span>
             </div>
             <input
               type="text"
@@ -39,7 +40,7 @@ export default function VaccinationEdit({ vaccination }) {
           {/* Date */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Date</span>
+              <span className="label-text">{t('vaccinations.fields.date')}</span>
             </div>
             <input
               type="date"
@@ -53,7 +54,7 @@ export default function VaccinationEdit({ vaccination }) {
           {/* Next Dose */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Next Dose</span>
+              <span className="label-text">{t('vaccinations.fields.next_dose')}</span>
             </div>
             <input
               type="date"
@@ -64,7 +65,7 @@ export default function VaccinationEdit({ vaccination }) {
             {errors.next_dose && <span className="text-red-500">{errors.next_dose}</span>}
           </label>
 
-          <button type="submit" className="btn btn-primary">Save</button>
+          <button type="submit" className="btn btn-primary">{t('common.actions.save')}</button>
         </form>
       </SectionCard>
     </MainLayout>

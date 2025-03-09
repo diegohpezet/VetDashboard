@@ -4,17 +4,18 @@ import { Head, Link } from "@inertiajs/react";
 import AppointmentList from "./Components/AppointmentList";
 import Pagination from "@/Components/Pagination";
 import SearchBar from "@/Components/SearchBar";
+import { t } from "i18next";
 
 export default function AppointmentsIndex({ appointments, search }) {
   return (
     <MainLayout>
-      <Head title="Appointments" />
+      <Head title={t('appointments')} />
 
       <SectionCard>
         <div className="md:flex justify-between">
-          <SearchBar initialSearch={search} resource='appointments' />
+          <SearchBar initialSearch={search} resource={t('appointments')} />
 
-          <Link href={route('appointments.create')} className="btn btn-primary mb-3 font-bold text-lg">+ New appointment</Link>
+          <Link href={route('appointments.create')} className="btn btn-primary mb-3 font-bold text-lg">+ {t('appointments.create')}</Link>
         </div>
 
         <AppointmentList appointments={appointments} />

@@ -2,6 +2,7 @@ import SectionCard from "@/Components/SectionCard";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, useForm } from "@inertiajs/react";
 import { useState, useEffect } from "react";
+import { t } from "i18next";
 
 export default function AppointmentEdit({ appointment, pets, owners }) {
   const { data, setData, put, errors } = useForm({
@@ -50,22 +51,22 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
 
   return (
     <MainLayout>
-      <Head title="Edit Appointment" />
+      <Head title={t("appointments.edit")} />
       <SectionCard>
-        <h1 className="text-2xl font-bold">Edit Appointment</h1>
+        <h1 className="text-2xl font-bold">{t("appointments.edit")}</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Owner (To filter pets from) */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Owner</span>
+              <span className="label-text">{t("appointments.fields.owner")}</span>
             </div>
             <select
               className="select select-bordered"
               value={selectedOwner}
               onChange={handleOwnerChange}
             >
-              <option value="">Select an owner</option>
+              <option value="">{t("appointments.fields.owner.select")}</option>
               {owners.map((owner) => (
                 <option key={owner.id} value={owner.id}>
                   {owner.name}
@@ -77,7 +78,7 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
           {/* Pet */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Pet</span>
+              <span className="label-text">{t("appointments.fields.pet")}</span>
             </div>
             <select
               className="select select-bordered"
@@ -86,7 +87,7 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
               disabled={!selectedOwner || filteredPets.length === 0}
               required
             >
-              <option value="">Select a pet</option>
+              <option value="">{t("appointments.fields.pet.select")}</option>
               {filteredPets.map((pet) => (
                 <option key={pet.id} value={pet.id}>
                   {pet.name}
@@ -99,7 +100,7 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
           {/* Date */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Date</span>
+              <span className="label-text">{t("appointments.fields.date")}</span>
             </div>
             <input
               type="date"
@@ -114,7 +115,7 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
           {/* Time */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Time</span>
+              <span className="label-text">{t("appointments.fields.time")}</span>
             </div>
             <select
               className="select select-bordered"
@@ -133,7 +134,7 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
           {/* Reason */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Reason</span>
+              <span className="label-text">{t("appointments.fields.reason")}</span>
             </div>
             <input
               type="text"
@@ -147,16 +148,16 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
           {/* Status */}
           <label className="form-control">
             <div className="label">
-              <span className="label-text">Status</span>
+              <span className="label-text">{t("appointments.fields.status")}</span>
             </div>
             <select
               className="select select-bordered"
               value={data.status}
               onChange={(e) => setData("status", e.target.value)}
             >
-              <option value="Scheduled">Scheduled</option>
-              <option value="Cancelled">Cancelled</option>
-              <option value="Completed">Completed</option>
+              <option value="Scheduled">{t("appointments.fields.status.options.scheduled")}</option>
+              <option value="Cancelled">{t("appointments.fields.status.options.cancelled")}</option>
+              <option value="Completed">{t("appointments.fields.status.options.completed")}</option>
             </select>
             {errors.status && (<span className="text-red-500">{errors.status}</span>)}
           </label>
@@ -166,10 +167,10 @@ export default function AppointmentEdit({ appointment, pets, owners }) {
               href={route("appointments.index")}
               className="btn btn-ghost text-primary"
             >
-              Cancel
+              {t("common.actions.cancel")}
             </a>
             <button type="submit" className="btn btn-primary">
-              Update
+              {t("common.actions.save")}
             </button>
           </div>
         </form>

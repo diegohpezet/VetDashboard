@@ -1,0 +1,143 @@
+{
+  "greeting": "Hola {{name}}",
+
+  "dashboard": "Inicio",
+  "profile": "Perfil",
+
+  "time.at": "a las",
+
+  "services": "Servicios",
+  "services.create": "Nuevo servicio",
+  "services.edit": "Editar servicio",
+  "services.confirm_delete": "¿Estas seguro de querer eliminar este servicio?",
+  "services.fields": {
+    "name": "Nombre",
+    "price": "Precio"
+  },
+
+  "appointments": "Citas",
+  "appointments.for": "Citas para {{pet}}",
+  "appointments.today": "Citas de hoy",
+  "appointments.completed": "Citas finalizadas",
+  "appointments.scheduled": "Citas próximas",
+  "appointments.cancelled": "Citas canceladas",
+  "appointments.create": "Nueva cita",
+  "appointments.edit": "Editar cita",
+  "appointments.confirm_delete": "¿Estas seguro de querer eliminar esta cita?",
+  "appointments.fields": {
+    "owner": "Propietario",
+    "owner.select": "Seleccionar propietario",
+    "pet": "Mascota",
+    "pet.select": "Seleccionar mascota",
+    "date": "Fecha",
+    "time": "Hora",
+    "time.select": "Seleccionar hora",
+    "reason": "Motivo",
+    "status": "Estado",
+    "status.select": "Seleccionar estado",
+    "status.options": {
+      "scheduled": "Programada",
+      "completed": "Finalizada",
+      "cancelled": "Cancelada"
+    }
+  },
+
+  "pets": "Mascotas",
+  "pets.create": "Nueva mascota",
+  "pets.edit": "Editar mascota",
+  "pets.fields": {
+    "name": "Nombre",
+
+    "breed": "Raza",
+
+    "species": "Especie",
+    "species.select": "Seleccionar especie",
+    "species.options": {
+      "dog": "Perro",
+      "cat": "Gato",
+      "bunny": "Conejo"
+    },
+
+    "sex": "Sexo",
+    "sex.select": "Seleccionar sexo",
+    "sex.options": {
+      "male": "Macho",
+      "female": "Hembra"
+    },
+
+    "stage": "Etapa",
+    "stage.select": "Seleccionar etapa",
+    "stage.options": {
+      "baby": "Bebe",
+      "puppy": "Cachorro",
+      "adult": "Adulto",
+      "old": "Viejo"
+    },
+
+    "characteristics": "Caracteristicas",
+    "characteristics.placeholder": "Tratos especiales, comportamiento, etc",
+
+    "owner": "Dueño",
+    "owner.select": "Seleccionar dueño"
+  },
+
+  "owners": "Dueños",
+  "owners.create": "Nuevo dueño",
+  "owners.edit": "Editar dueño",
+  "owners.confirm_delete": "¿Estás seguro de querer eliminar este dueño?",
+  "owners.fields": {
+    "name": "Nombre",
+
+    "email": "Email",
+    "email.placeholder": "johndoe@ejemplo.com",
+    
+    "address": "Dirección",
+    "address.placeholder": "Calle 123, Ciudad",
+
+    "phone_number": "Teléfono",
+    "phone_number.placeholder": "+54 11 1234-5678"
+  },
+
+  "vaccinations": "Vacunas",
+  "vaccinations.view_all": "Ver todas",
+  "vaccinations.create": "Nueva vacuna",
+  "vaccinations.create.for": "Nueva vacuna para {{name}}",
+  "vaccinations.edit": "Editar vacuna",
+  "vaccinations.confirm_delete": "¿Estas seguro de querer eliminar esta vacuna?",
+  "vaccinations.fields": {
+    "name": "Vacuna",
+    "date": "Fecha",
+    "next_dose": "Proxima dosis"
+  },
+
+  "medical_records": "Historial Clínico",
+  "medical_records.for": "Historial Clínico de {{name}}",
+  "medical_records.create": "Nuevo registro",
+  "medical_records.create.for": "Nuevo registro médico para {{name}}",
+  "medical_records.edit": "Editar registro",
+  "medical_records.confirm_delete": "¿Estás seguro de querer eliminar este registro?",
+  "medical_records.view_all": "Ver todos",
+  "medical_records.fields": {
+    "diagnosis": "Diagnostico",
+    "treatment": "Tratamiento",
+    "date": "Fecha"
+  },
+
+  "common": {
+    "actions": {
+      "cancel": "Cancelar",
+      "create": "Crear",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "save": "Guardar",
+      "search": "Buscar",
+      "update": "Actualizar",
+      "view": "Ver"
+    },
+    "back": "Atrás",
+    "empty": "Sin resultados"
+  },
+
+  "search": "Buscar",
+  "logout": "Cerrar Sesión"
+}
