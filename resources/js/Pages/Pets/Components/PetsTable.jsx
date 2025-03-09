@@ -33,17 +33,17 @@ export default function PetsTable({ pets, showOwner = true }) {
               <td className="text-primary">
                 <Link href={route("pets.show", pet.id)}>{pet.name}</Link>
               </td>
-              <td>{pet.species}</td>
+              <td>{t(`pets.fields.species.options.${pet.species.toLowerCase()}`)}</td>
               <td>{pet.breed}</td>
               <td>
                 {pet.sex === 'Male' ? <i className="ri-men-line text-blue-400"></i> : <i className="ri-women-line text-pink-400"></i>}
               </td>
-              <td>{pet.stage}</td>
+              <td>{t(`pets.fields.stage.options.${pet.stage.toLowerCase()}`)}</td>
               {showOwner && <td className="text-primary">
                 <Link href={route('owners.show', pet.owner.id)}>{pet.owner.name}</Link>
               </td>}
               <td>
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-left">
                   <div tabIndex={0} role="button" className="btn btn-ghost m-1">
                     <i className="ri-more-2-fill"></i>
                   </div>

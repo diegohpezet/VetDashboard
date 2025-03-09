@@ -1,4 +1,5 @@
 import { useForm } from "@inertiajs/react";
+import { t } from "i18next";
 
 /**
  * Renders a searchbar for the specified resource
@@ -22,7 +23,7 @@ export default function SearchBar({ initialSearch, resource }) {
         <input
           type="text"
           className="grow"
-          placeholder={`Search ${resource}...`}
+          placeholder={`${t('common.actions.search')} ${resource}...`}
           value={data.search}
           onChange={(e) => setData("search", e.target.value)}
         />
