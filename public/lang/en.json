@@ -1,0 +1,134 @@
+{
+  "greeting": "Hello {{name}}",
+
+  "dashboard": "Home",
+  "profile": "Profile",
+
+  "time.at": "at",
+
+  "services": "Services",
+  "services.create": "New service",
+  "services.edit": "Edit service",
+  "services.confirm_delete": "Are you sure you want to delete this service?",
+  "services.fields": {
+    "name": "Name",
+    "price": "Price"
+  },
+
+  "appointments": "Appointments",
+  "appointments.for": "Appointments for {{pet}}",
+  "appointments.today": "Today's appointments",
+  "appointments.completed": "Completed appointments",
+  "appointments.scheduled": "Upcoming appointments",
+  "appointments.cancelled": "Cancelled appointments",
+  "appointments.create": "New appointment",
+  "appointments.edit": "Edit appointment",
+  "appointments.confirm_delete": "Are you sure you want to delete this appointment?",
+  "appointments.fields": {
+    "owner": "Owner",
+    "owner.select": "Select owner",
+    "pet": "Pet",
+    "pet.select": "Select pet",
+    "date": "Date",
+    "time": "Time",
+    "time.select": "Select time",
+    "reason": "Reason",
+    "status": "Status",
+    "status.select": "Select status",
+    "status.options": {
+      "scheduled": "Scheduled",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+
+  "pets": "Pets",
+  "pets.create": "New pet",
+  "pets.edit": "Edit pet",
+  "pets.fields": {
+    "name": "Name",
+    "breed": "Breed",
+    "species": "Species",
+    "species.select": "Select species",
+    "species.options": {
+      "dog": "Dog",
+      "cat": "Cat",
+      "bunny": "Bunny"
+    },
+    "sex": "Sex",
+    "sex.select": "Select sex",
+    "sex.options": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "stage": "Stage",
+    "stage.select": "Select stage",
+    "stage.options": {
+      "baby": "Baby",
+      "puppy": "Puppy",
+      "adult": "Adult",
+      "old": "Old"
+    },
+    "characteristics": "Characteristics",
+    "characteristics.placeholder": "Special traits, behavior, etc.",
+    "owner": "Owner",
+    "owner.select": "Select owner"
+  },
+
+  "owners": "Owners",
+  "owners.create": "New owner",
+  "owners.edit": "Edit owner",
+  "owners.confirm_delete": "Are you sure you want to delete this owner?",
+  "owners.fields": {
+    "name": "Name",
+    "email": "Email",
+    "email.placeholder": "johndoe@example.com",
+    "address": "Address",
+    "address.placeholder": "Street 123, City",
+    "phone_number": "Phone",
+    "phone_number.placeholder": "+1 555-1234-5678"
+  },
+
+  "vaccinations": "Vaccinations",
+  "vaccinations.view_all": "View all",
+  "vaccinations.create": "New vaccination",
+  "vaccinations.create.for": "New vaccination for {{name}}",
+  "vaccinations.edit": "Edit vaccination",
+  "vaccinations.confirm_delete": "Are you sure you want to delete this vaccination?",
+  "vaccinations.fields": {
+    "name": "Vaccine",
+    "date": "Date",
+    "next_dose": "Next dose"
+  },
+
+  "medical_records": "Medical Records",
+  "medical_records.for": "Medical Records for {{name}}",
+  "medical_records.create": "New record",
+  "medical_records.create.for": "New medical record for {{name}}",
+  "medical_records.edit": "Edit record",
+  "medical_records.confirm_delete": "Are you sure you want to delete this record?",
+  "medical_records.view_all": "View all",
+  "medical_records.fields": {
+    "diagnosis": "Diagnosis",
+    "treatment": "Treatment",
+    "date": "Date"
+  },
+
+  "common": {
+    "actions": {
+      "cancel": "Cancel",
+      "create": "Create",
+      "delete": "Delete",
+      "edit": "Edit",
+      "save": "Save",
+      "search": "Search",
+      "update": "Update",
+      "view": "View"
+    },
+    "back": "Back",
+    "empty": "No results found"
+  },
+
+  "search": "Search",
+  "logout": "Logout"
+}
