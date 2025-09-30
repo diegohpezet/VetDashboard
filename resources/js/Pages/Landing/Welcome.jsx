@@ -13,6 +13,7 @@ export default function Welcome({ auth }) {
             <div className="min-h-screen">
                 <Hero />
                 <About />
+                <hr className='mt-15'/>
                 <Services />
                 <Testimonials />
                 <Contact />
