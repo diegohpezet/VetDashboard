@@ -15,6 +15,7 @@ export default function Welcome({ auth }) {
                 <About />
                 <hr className='mt-15'/>
                 <Services />
+                <hr className='mt-15'/>
                 <Testimonials />
                 <Contact />
                 <Footer />
